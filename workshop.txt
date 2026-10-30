@@ -1,0 +1,27 @@
+[h1]Abstracted Navy Patrolling[/h1]
+
+Tired of babysitting Patrol the Seas? This mod adds a new naval ability, [b]Abstracted Patrol[/b]: park your fleets anywhere at sea and their maritime presence is spread over the sea zones [i]you[/i] choose, every month, with no patrol AI moving your ships around.
+
+[list]
+[*][b]Turn on Abstracted Patrol[/b] on any fleet (it's a toggle among the fleet's abilities).
+[*][b]Pick the waters[/b]: tick the new checkbox next to the pin button in a sea zone's window, or use the [b]Patrol Our Coastal Waters[/b] decision to patrol every sea zone bordering your land.
+[*]Every patrolling fleet that is at sea and not in combat [b]pools[/b] its presence, and the pool is split evenly over all your patrolled zones, wherever your fleets are.
+[*]With no patrolled zones, each fleet covers the sea zones of its own sea area instead.
+[/list]
+
+[h2]How strong is it?[/h2]
+Each ship adds its own vanilla maritime presence, raised by your maritime presence modifiers, so the rate matches vanilla patrolling: more and better ships mean more presence, and more patrolled zones spread it thinner. Hover the checkbox to see how much each zone got last month. Patrolled zones also show a [b]Patrolled Waters[/b] modifier with the same number (the game adds this presence directly, so it doesn't appear in the zone's monthly breakdown).
+
+[h2]Good to know[/h2]
+[list]
+[*][b]Release All Patrolled Waters[/b] (decision) clears your list.
+[*]A fleet split off a patrolling fleet starts with the ability off; merged fleets keep patrolling if either part was.
+[*]The AI doesn't use the ability and is unaffected; the monthly update only runs for human players.
+[*]Ships added by other mods count with a small default presence.
+[*]Multiplayer: each player has their own patrolled zones.
+[/list]
+
+[h2]Compatibility[/h2]
+Compatible with Glorp UI. Replaces [i]in_game/gui/seazone_window.gui[/i]. Not compatible with other mods that replace the sea zone window (whichever loads last wins). Compatible with everything else.
+
+Only English text so far; translations welcome.

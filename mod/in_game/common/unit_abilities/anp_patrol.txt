@@ -1,0 +1,37 @@
+﻿anp_patrol = {
+	duration = -1
+	toggle = yes
+	navy_only = yes
+	cancel_on_combat = no
+
+	map = yes
+
+	allow = {
+		in_combat = no
+		is_exiled = no
+	}
+
+	modifier = {
+	}
+
+	# The ability's own modifier can't be tested from script, so mark the unit with a static one.
+	# Tested: a fleet split off a patrolling one starts with the ability off; a merged fleet keeps
+	# patrolling if either part was.
+	start_effect = {
+		add_unit_modifier = {
+			modifier = anp_patrolling
+			years = 1000
+		}
+	}
+	finish_effect = {
+		remove_unit_modifier = anp_patrolling
+	}
+
+	finished_when = {
+		is_exiled = yes
+	}
+
+	ai_will_do = {
+		value = -1
+	}
+}

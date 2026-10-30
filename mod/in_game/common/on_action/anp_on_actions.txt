@@ -1,0 +1,67 @@
+﻿monthly_country_pulse = {
+	on_actions = {
+		anp_monthly_pulse
+	}
+}
+
+# root = country
+# All patrolling fleets pool their presence and spread it evenly over our patrolled zones
+# (anp_zones), wherever they are. With no patrolled zones, each fleet covers every sea zone of its
+# own sea area. AI countries never use the ability, so they are skipped before touching any unit.
+anp_monthly_pulse = {
+	trigger = {
+		is_ai = no
+	}
+	effect = {
+		if = {
+			limit = {
+				any_unit = { anp_is_projecting = yes }
+			}
+			save_temporary_scope_value_as = { name = anp_multiplier value = anp_presence_multiplier }
+			if = {
+				limit = {
+					has_variable_list = anp_zones
+					variable_list_size = { name = anp_zones value > 0 }
+				}
+				save_temporary_scope_value_as = { name = anp_zone_presence value = anp_pooled_presence_per_zone }
+				# Shown in the sea zone checkbox tooltip
+				set_variable = { name = anp_zone_presence value = scope:anp_zone_presence }
+				every_in_list = {
+					variable = anp_zones
+					change_maritime_presence_power = {
+						country = root
+						value = scope:anp_zone_presence
+					}
+					add_location_modifier = {
+						modifier = anp_patrolled_waters
+						months = 2
+						mode = replace
+						size = scope:anp_zone_presence
+					}
+				}
+			}
+			else = {
+				every_unit = {
+					limit = { anp_is_projecting = yes }
+					save_temporary_scope_as = anp_navy
+					unit_location.area = {
+						# Once per fleet, not once per sea zone
+						save_temporary_scope_value_as = { name = anp_area_presence value = anp_area_presence_per_zone }
+						every_location_in_area = {
+							limit = { anp_is_patrollable_zone = yes }
+							change_maritime_presence_power = {
+								country = root
+								value = scope:anp_area_presence
+							}
+						}
+					}
+				}
+			}
+		}
+		# Nobody patrolling: don't keep showing last month's number in the tooltip
+		else_if = {
+			limit = { has_variable = anp_zone_presence }
+			remove_variable = anp_zone_presence
+		}
+	}
+}

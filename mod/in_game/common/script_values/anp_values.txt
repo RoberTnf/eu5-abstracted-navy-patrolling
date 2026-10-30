@@ -1,0 +1,58 @@
+﻿# Multiplier on a ship's vanilla maritime_presence (0.04 canoe .. 0.8 giant), which is the monthly
+# presence points (0-100 scale) it spreads over the zones it covers. 1 = vanilla rate: a parked
+# fleet adds the sum of its ships' values, split over the sea zones it covers.
+anp_presence_scale = 1
+
+# Root = country. Multiplier on every ship's presence: anp_presence_scale raised by our global
+# maritime presence modifiers. Worked out once per pulse and saved as scope:anp_multiplier.
+anp_presence_multiplier = {
+	value = 1
+	add = modifier:global_maritime_presence_modifier
+	min = 0
+	multiply = anp_presence_scale
+}
+
+# Unit scope: monthly presence this fleet contributes (needs scope:anp_multiplier)
+anp_fleet_presence = {
+	value = 0
+	every_sub_unit = {
+		add = anp_ship_maritime_presence
+	}
+	multiply = scope:anp_multiplier
+	min = 0
+}
+
+# Root = country. Presence each patrolled zone (country list anp_zones) gets from the pool of all
+# patrolling fleets (needs scope:anp_multiplier)
+anp_pooled_presence_per_zone = {
+	value = 0
+	every_unit = {
+		limit = { anp_is_projecting = yes }
+		add = anp_fleet_presence
+	}
+	divide = {
+		value = 0
+		every_in_list = {
+			variable = anp_zones
+			add = 1
+		}
+		min = 1
+	}
+}
+
+# Area scope. Fallback with no patrolled zones: presence scope:anp_navy spreads over each sea zone
+# of this area
+anp_area_presence_per_zone = {
+	value = 0
+	scope:anp_navy = {
+		add = anp_fleet_presence
+	}
+	divide = {
+		value = 0
+		every_location_in_area = {
+			limit = { anp_is_patrollable_zone = yes }
+			add = 1
+		}
+		min = 1
+	}
+}

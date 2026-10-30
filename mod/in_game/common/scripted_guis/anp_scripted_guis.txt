@@ -1,0 +1,33 @@
+﻿# Abstracted Navy Patrolling
+# Sea zones the player picked live in the country variable list `anp_zones` (saved with the game).
+
+# True when scope:anp_zone is one of our patrolled zones (drives the checkbox).
+anp_zone_patrolled = {
+	scope = country
+	saved_scopes = { anp_zone }
+
+	is_shown = {
+		is_target_in_variable_list = { name = anp_zones target = scope:anp_zone }
+	}
+}
+
+# Clicking the checkbox in the sea zone window: patrol this zone, or stop patrolling it.
+anp_toggle_zone = {
+	scope = country
+	saved_scopes = { anp_zone }
+
+	is_valid = {
+		scope:anp_zone = { anp_is_patrollable_zone = yes }
+	}
+
+	effect = {
+		if = {
+			limit = { is_target_in_variable_list = { name = anp_zones target = scope:anp_zone } }
+			remove_list_variable = { name = anp_zones target = scope:anp_zone }
+			scope:anp_zone = { remove_location_modifier = anp_patrolled_waters }
+		}
+		else = {
+			add_to_variable_list = { name = anp_zones target = scope:anp_zone }
+		}
+	}
+}

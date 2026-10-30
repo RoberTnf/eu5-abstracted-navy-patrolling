@@ -1,0 +1,14 @@
+{
+    "name": "Abstracted Navy Patrolling",
+    "id": "abstracted_navy_patrolling",
+    "version": "0.2.0",
+    "game_id": "eu5",
+    "supported_game_version": "1.4.*",
+    "short_description": "Naval ability: fleets pool their maritime presence and spread it over the sea zones you choose, without the Patrol the Seas AI.",
+    "tags": [
+        "Gameplay",
+        "Military"
+    ],
+    "relationships": [],
+    "game_custom_data": {}
+}

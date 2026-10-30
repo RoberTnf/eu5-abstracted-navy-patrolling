@@ -1,0 +1,14 @@
+﻿anp_patrolling = {
+	game_data = {
+		category = unit
+	}
+}
+
+# Display-only marker on patrolled sea zones, sized to the presence our fleets add there each month.
+# On a sea zone local_maritime_presence does nothing (tested), so it only shows the number.
+anp_patrolled_waters = {
+	game_data = {
+		category = location
+	}
+	local_maritime_presence = 1
+}

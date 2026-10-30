@@ -1,0 +1,14 @@
+﻿# Unit scope: Abstracted Patrol is on and the fleet is at sea, out of combat
+anp_is_projecting = {
+	is_navy = yes
+	has_unit_modifier = anp_patrolling
+	in_combat = no
+	unit_location ?= { is_land = no }
+}
+
+# Location scope: a sea zone that can be patrolled (not a lake)
+anp_is_patrollable_zone = {
+	is_land = no
+	NOT = { topography = lakes }
+	NOT = { topography = high_lakes }
+}
