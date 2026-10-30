@@ -1,6 +1,8 @@
 [h1]Abstracted Navy Patrolling[/h1]
 
-Tired of babysitting Patrol the Seas? This mod adds a new naval ability, [b]Abstracted Patrol[/b]: park your fleets anywhere at sea and their maritime presence is spread over the sea zones [i]you[/i] choose, every month, with no patrol AI moving your ships around.
+Patrolling navies require too much micro and babysitting. This mod makes it much easier to use your fleet to increase maritime presence.
+
+This mod adds a new naval ability, [b]Abstracted Patrol[/b]: park your fleets anywhere at sea and their maritime presence is spread over the sea zones [i]you[/i] choose, every month, with no patrol AI moving your ships around.
 
 [list]
 [*][b]Turn on Abstracted Patrol[/b] on any fleet (it's a toggle among the fleet's abilities).
