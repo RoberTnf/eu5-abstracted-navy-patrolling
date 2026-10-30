@@ -25,3 +25,9 @@ Each ship adds its own vanilla maritime presence, raised by your maritime presen
 Compatible with Glorp UI. Replaces [i]in_game/gui/seazone_window.gui[/i]. Not compatible with other mods that replace the sea zone window (whichever loads last wins). Compatible with everything else.
 
 Only English text so far; translations welcome.
+
+[h2]Source code[/h2]
+Available on GitHub: [url=https://github.com/RoberTnf/eu5-abstracted-navy-patrolling]github.com/RoberTnf/eu5-abstracted-navy-patrolling[/url]. Bug reports, translations and pull requests welcome.
+
+[h2]AI use disclaimer[/h2]
+This mod was developed with the help of AI (Claude, by Anthropic): much of the script and GUI code was written with AI assistance. Every feature was designed, reviewed and tested in game by me.
